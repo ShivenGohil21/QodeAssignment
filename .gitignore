@@ -33,3 +33,4 @@ build/
 .DS_Store
 *.log
 .system_generated/
+FrontendDesign/
