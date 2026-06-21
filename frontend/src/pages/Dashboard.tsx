@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useBacktestStore } from '../store/backtestStore'
 
-const API_BASE = "http://localhost:8000"
+const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:8000"
 
 export const Dashboard: React.FC = () => {
   const { setActivePage, setSelectedBacktestId, backtestList, setBacktestList, setSelectedSymbol } = useBacktestStore()

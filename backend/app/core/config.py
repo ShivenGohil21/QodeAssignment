@@ -13,7 +13,7 @@ class Settings(BaseSettings):
     # Database config - will default to SQLite if POSTGRES_URL not provided
     DATABASE_URL: str = os.getenv(
         "DATABASE_URL", 
-        "sqlite:///C:/CompanyProject/backend/backtest.db"
+        "sqlite:///backtest.db"
     )
     
     # Default Indian Stocks list (Nifty constituents/other large liquid stocks)

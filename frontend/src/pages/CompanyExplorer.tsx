@@ -10,7 +10,7 @@ import {
 } from 'recharts'
 import { useBacktestStore } from '../store/backtestStore'
 
-const API_BASE = "http://localhost:8000"
+const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:8000"
 
 export const CompanyExplorer: React.FC = () => {
   const { selectedSymbol, setSelectedSymbol } = useBacktestStore()
