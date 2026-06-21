@@ -10,11 +10,16 @@ class Settings(BaseSettings):
     PROJECT_NAME: str = "Equity Strategy Backtesting Platform"
     API_V1_STR: str = "/api"
     
-    # Database config - will default to SQLite if POSTGRES_URL not provided
-    DATABASE_URL: str = os.getenv(
-        "DATABASE_URL", 
-        "sqlite:///backtest.db"
-    )
+    # Database config - DATABASE_URL is required to point to Supabase PostgreSQL
+    DATABASE_URL: str = os.getenv("DATABASE_URL")
+    
+    def __init__(self, **values):
+        super().__init__(**values)
+        if not self.DATABASE_URL:
+            raise ValueError(
+                "DATABASE_URL environment variable is required and must point to your Supabase PostgreSQL instance."
+            )
+
     
     # Default Indian Stocks list (Nifty constituents/other large liquid stocks)
     DEFAULT_SYMBOLS: List[str] = [
